@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,21 +10,22 @@ namespace JSONParseClass
 {
     public class Port
     {
-        [JsonPropertyName("wwpn")]
+        [JsonProperty("wwpn")]
         public string Wwpn { get; set; }
-        [JsonPropertyName("wwnn")]
+        [JsonProperty("wwnn")]
         public string Wwnn { get; set; }
-        [JsonPropertyName("domain-id")]
-        public string DomainId { get; set; }
-        [JsonPropertyName("fcid")]
-        public string FcId { get; set; }
-        [JsonPropertyName("port name")]
+        [JsonProperty("domain-id")]
+        public object DomainId { get; set; }
+        [JsonProperty("fcid")]
+        public int FcId { get; set; }
+        [JsonProperty("port name")]
         public string PortName { get; set; }
-        [JsonPropertyName("port number")]
+        [JsonProperty("port number")]
         public string PortNumber { get; set; }
-        [JsonPropertyName("firmware-version")]
+        [JsonProperty("firmware-version")]
         public string FirmwareVersion { get; set; }
-        [JsonPropertyName("serial-number")]
+        [JsonProperty("serial-number")]
         public string SerialNumber { get; set; }
     }
+
 }
