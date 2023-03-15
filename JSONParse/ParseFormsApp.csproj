@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JSONParseClass\JSONParseClass.csproj" />
+    <ProjectReference Include="..\JSONParseClass\Parsing.csproj" />
   </ItemGroup>
 
 </Project>
