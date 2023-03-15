@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace JSONParseClass
+namespace Parsing
 {
     public class ParseXMLFile
     {

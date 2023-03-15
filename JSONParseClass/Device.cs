@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Xml.Serialization;
 
-namespace JSONParseClass
+namespace Parsing
 {
     [XmlRoot("root", Namespace = "")]
     public class Device
