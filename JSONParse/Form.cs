@@ -13,7 +13,7 @@ namespace JSONParse
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html)|*.html";
+            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html)|*.html| Textual Files (*.txt)| *.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string extension = Path.GetExtension(ofd.FileName);
@@ -28,6 +28,10 @@ namespace JSONParse
                 else if (extension == ".html")
                 {
                     textBox1.Text = ParseHTMLFile.Parse(ofd.FileName);
+                }
+                else if(extension == ".txt")
+                {
+                    textBox1.Text = ParseTXTFile.Parse(ofd.FileName); 
                 }
                 else
                 {
