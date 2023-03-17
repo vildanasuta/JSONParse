@@ -8,11 +8,11 @@ namespace Parsing
 {
     public class IPInfo
     {
-        public string IPAddress { get; set; }
-        public string NIC { get; set; }
-        public string Status { get; set; }
-        public string Type { get; set; }
-        public string Array { get; set; }
-        public string Controller { get; set; }
+        public string? IPAddress { get; set; }
+        public string? NIC { get; set; }
+        public string? Status { get; set; }
+        public string? Type { get; set; }
+        public string? Array { get; set; }
+        public string? Controller { get; set; }
     }
 }

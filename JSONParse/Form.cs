@@ -13,7 +13,7 @@ namespace JSONParse
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html)|*.html| Textual Files (*.txt)| *.txt";
+            ofd.Filter = "JSON Files (*.json)|*.json|XML Files (*.xml)|*.xml|HTML Files (*.html)|*.html|Textual Files (*.txt)| *.txt|CSV Files (*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string extension = Path.GetExtension(ofd.FileName);
@@ -32,6 +32,10 @@ namespace JSONParse
                 else if(extension == ".txt")
                 {
                     textBox1.Text = ParseTXTFile.Parse(ofd.FileName); 
+                }
+                else if (extension == ".csv")
+                {
+                    textBox1.Text = ParseCSVFile.Parse(ofd.FileName);
                 }
                 else
                 {
