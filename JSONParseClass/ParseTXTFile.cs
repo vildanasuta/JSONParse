@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Parsing
@@ -15,9 +17,11 @@ namespace Parsing
             using (StreamReader streamReader = new StreamReader(path))
             {
                 string line;
+                string match="^IP Address";
+                Regex regex = new Regex(match);
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    if (line.StartsWith("IP Address"))
+                    if (regex.IsMatch(line))
                     {
                         isIpListSection = true;
                         continue;

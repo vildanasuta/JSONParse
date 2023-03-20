@@ -17,6 +17,7 @@ namespace JSONParse
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string extension = Path.GetExtension(ofd.FileName);
+                label1.Text = Path.GetFileName(ofd.FileName);
                 if (extension == ".json")
                 {
                     textBox1.Text = ParseJSONFile.ParseDevice(ofd.FileName);
