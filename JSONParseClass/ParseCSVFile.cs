@@ -9,6 +9,7 @@ using System.Formats.Asn1;
 using System.Globalization;
 using CsvHelper.Configuration;
 using System.Reflection.PortableExecutable;
+using System.Text.RegularExpressions;
 
 namespace Parsing
 {
@@ -22,9 +23,11 @@ namespace Parsing
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 bool isInsideCacheSection = false;
+                Regex regex = new Regex("^Module#");
+                Regex regex1 = new Regex("^Cache Memory");
                 while (csv.Read())
                 {
-                    if (csv.GetField<string>(0).Equals("Module#"))
+                    if (regex.IsMatch(csv.GetField<string>(0)))
                     {
                         isInsideCacheSection = true;
                     }
@@ -39,7 +42,7 @@ namespace Parsing
                         var cache = new Cache(module, label, cmgSize, cacheSize, smSize, residencySize);
                         cacheList.Add(cache);
 
-                        if (!csv.GetField<string>(1).StartsWith("Cache Memory"))
+                        if (!regex1.IsMatch(csv.GetField<string>(1)))
                         {
                             isInsideCacheSection = false;
                         }
