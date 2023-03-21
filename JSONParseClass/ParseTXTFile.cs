@@ -14,30 +14,29 @@ namespace Parsing
         {
             List<IPInfo> iPInfoList = new List<IPInfo>();
             bool isIpListSection = false;
+            Regex regex = new Regex(@"^(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)$");
             using (StreamReader streamReader = new StreamReader(path))
             {
                 string line;
-                string match="^IP Address";
-                Regex regex = new Regex(match);
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    if (regex.IsMatch(line))
+                    if (line.StartsWith("IP Address"))
                     {
                         isIpListSection = true;
                         continue;
                     }
                     if (isIpListSection)
                     {
-                        string[] fields = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (fields.Length >= 6)
+                        Match match = regex.Match(line);
+                        if (match.Success)
                         {
                             IPInfo iPInfo = new IPInfo();
-                            iPInfo.IPAddress = fields[0];
-                            iPInfo.NIC = fields[1];
-                            iPInfo.Status = fields[2];
-                            iPInfo.Type = fields[3];
-                            iPInfo.Array = fields[4];
-                            iPInfo.Controller = fields[5];
+                            iPInfo.IPAddress = match.Groups[1].Value;
+                            iPInfo.NIC = match.Groups[2].Value;
+                            iPInfo.Status = match.Groups[3].Value;
+                            iPInfo.Type = match.Groups[4].Value;
+                            iPInfo.Array = match.Groups[5].Value;
+                            iPInfo.Controller = match.Groups[6].Value;
                             iPInfoList.Add(iPInfo);
                         }
                     }
@@ -58,6 +57,7 @@ namespace Parsing
 
             return sb.ToString();
         }
+
 
     }
 }
