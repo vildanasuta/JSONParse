@@ -35,6 +35,7 @@ namespace JSONParse
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -93,6 +94,25 @@ namespace JSONParse
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button3.Font = new System.Drawing.Font("Swis721 BT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.Lavender;
+            this.button3.Location = new System.Drawing.Point(322, 417);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(451, 45);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Export to Excel";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -100,6 +120,7 @@ namespace JSONParse
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1107, 644);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -126,5 +147,6 @@ namespace JSONParse
         private TextBox textBox1;
         private Label label1;
         private Button button2;
+        private Button button3;
     }
 }

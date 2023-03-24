@@ -10,10 +10,15 @@ namespace Parsing
 {
     public class ParseJSONFile
     {
-        public static string ParseDevice(string path)
+        public static Device Parse(string path)
         {
             string jsonString = File.ReadAllText(path);
             Device device = JsonConvert.DeserializeObject<Device>(jsonString);
+            return device;
+        }
+        public static string ParseDevice(string path)
+        {
+            var device = Parse(path);
             string parsed = $"Device Name: {device.DeviceName}\r\n" +
                        $"Manufacturer: {device.Manufacturer}\r\n" +
                        $"Part Number: {device.PartNumber}\r\n" +
