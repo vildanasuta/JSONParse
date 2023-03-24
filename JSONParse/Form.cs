@@ -1,5 +1,7 @@
+using DocumentFormat.OpenXml.CustomProperties;
 using Newtonsoft.Json;
 using OfficeOpenXml;
+using ParseFormsApp.Properties;
 using Parsing;
 
 namespace JSONParse
@@ -69,7 +71,7 @@ namespace JSONParse
                 MessageBox.Show("No data to export.");
                 return;
             }
-            var templatePath = "C:/Users/vsuta/Desktop/Template.xlsx";
+            var templatePath = Path.Combine(Application.StartupPath, "Resources", "Template.xlsx");
             if (!File.Exists(templatePath))
             {
                 MessageBox.Show("Excel template not found.");
