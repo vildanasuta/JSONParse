@@ -95,11 +95,13 @@ namespace JSONParse
                 var device = new Device();
                 if (isXML)
                 {
-                  device = ParseXMLFile.Parse(fileName); 
+                    device = ParseXMLFile.Parse(fileName);
+                    isXML= false;
                 }
                 if (isJSON)
                 {
-                  device = ParseJSONFile.Parse(fileName);
+                    device = ParseJSONFile.Parse(fileName);
+                    isJSON = false;
                 }
                 deviceSheet.Cells["A2"].Value = device.DeviceName;
                 deviceSheet.Cells["B2"].Value = device.Manufacturer;
