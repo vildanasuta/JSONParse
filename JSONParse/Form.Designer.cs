@@ -36,6 +36,7 @@ namespace JSONParse
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -107,11 +108,22 @@ namespace JSONParse
             this.button3.Location = new System.Drawing.Point(322, 417);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(451, 45);
+            this.button3.Size = new System.Drawing.Size(376, 45);
             this.button3.TabIndex = 4;
             this.button3.Text = "Export to Excel";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Swis721 Hv BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Location = new System.Drawing.Point(713, 417);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(60, 45);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Open Excel";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form
             // 
@@ -120,6 +132,7 @@ namespace JSONParse
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1107, 644);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
@@ -148,5 +161,6 @@ namespace JSONParse
         private Label label1;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }

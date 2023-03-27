@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 using OfficeOpenXml;
 using ParseFormsApp.Properties;
 using Parsing;
+using System.Diagnostics;
+using Microsoft.Office.Interop.Excel;
 
 namespace JSONParse
 {
@@ -12,10 +14,12 @@ namespace JSONParse
         public string extension;
         public bool isXML = false;
         public bool isJSON = false;
+        public string templatePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources", "Template.xlsx");
         public Form()
         {
             InitializeComponent();
             button3.Visible = false;
+            button4.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +65,8 @@ namespace JSONParse
             if (isJSON || isXML)
             {
                 button3.Visible = true;
+                button4.Visible = true;
+                button4.Enabled = false;
             }
         }
 
@@ -71,7 +77,6 @@ namespace JSONParse
                 MessageBox.Show("No data to export.");
                 return;
             }
-            var templatePath = Path.Combine(Application.StartupPath, "Resources", "Template.xlsx");
             if (!File.Exists(templatePath))
             {
                 MessageBox.Show("Excel template not found.");
@@ -130,7 +135,13 @@ namespace JSONParse
                 }
                 template.Save();
                 MessageBox.Show("Successfully saved to Excel template!");
+                button4.Enabled = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", templatePath);
         }
     }
 }
