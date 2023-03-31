@@ -143,5 +143,37 @@ namespace JSONParse
         {
             System.Diagnostics.Process.Start("explorer.exe", templatePath);
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Parsing App allows you to parse five different types of files:\n\n" +
+                "- XML\n" +
+                "- HTML\n" +
+                "- JSON\n" +
+                "- CSV\n" +
+                "- TXT\n\n" +
+                "To parse a file, follow these steps:\n\n" +
+                "1. Click on the 'Load file' button\n" +
+                "2. Choose your file\n" +
+                "3. Click on the 'Parse file' button\n\n" +
+                "To export the file to Excel, click on the 'Export to Excel' button.\n\n" +
+                "To open the Excel file where information was stored, click on the 'Open Excel' button.",
+                "User guide for Parsing App",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            label1.Text = "";
+            button3.Visible = false;
+            button4.Visible = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }
