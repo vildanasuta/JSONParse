@@ -186,8 +186,9 @@ namespace JSONParse
             // getInputOnlineToolStripMenuItem
             // 
             this.getInputOnlineToolStripMenuItem.Name = "getInputOnlineToolStripMenuItem";
-            this.getInputOnlineToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.getInputOnlineToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.getInputOnlineToolStripMenuItem.Text = "Get input online";
+            this.getInputOnlineToolStripMenuItem.Click += new System.EventHandler(this.getInputOnlineToolStripMenuItem_Click);
             // 
             // toolStripButton1
             // 

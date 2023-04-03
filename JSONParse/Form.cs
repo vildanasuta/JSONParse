@@ -5,6 +5,7 @@ using ParseFormsApp.Properties;
 using Parsing;
 using System.Diagnostics;
 using Microsoft.Office.Interop.Excel;
+using ParseFormsApp;
 
 namespace JSONParse
 {
@@ -174,6 +175,12 @@ namespace JSONParse
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void getInputOnlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetInputOnlineForm getInputOnlineForm = new GetInputOnlineForm();
+            getInputOnlineForm.Show();
         }
     }
 }
