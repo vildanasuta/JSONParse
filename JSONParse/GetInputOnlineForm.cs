@@ -17,6 +17,10 @@ namespace ParseFormsApp
         public GetInputOnlineForm()
         {
             InitializeComponent();
+            if (path == null)
+            {
+                button2.Enabled = false;
+            }
         }
 
         private void GetInputOnlineForm_Load(object sender, EventArgs e)
