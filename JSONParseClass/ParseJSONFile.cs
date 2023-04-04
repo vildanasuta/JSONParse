@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -49,6 +51,24 @@ namespace Parsing
                         $"Serial Number: {port.SerialNumber}\r\n\r\n";
             }
             return parsedPort;
+        }
+        public static string ParsePeople(string path)
+        {
+            string jsonString = File.ReadAllText(path);
+            JObject jsonObject = JObject.Parse(jsonString);
+            JArray peopleArray = (JArray)jsonObject["people"];
+            string parsedPeople = "";
+            foreach (JObject personObject in peopleArray)
+            {
+                string parsedPerson = $"First name: {personObject["firstName"]}\r\n" +
+                                      $"Last name: {personObject["lastName"]}\r\n" +
+                                      $"Gender: {personObject["gender"]}\r\n" +
+                                      $"Age: {personObject["age"]}\r\n" +
+                                      $"Number: {personObject["number"]}\r\n";
+                parsedPeople += parsedPerson;
+                parsedPeople += "\r\n";
+            }
+            return parsedPeople;
         }
     }
 }

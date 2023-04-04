@@ -43,6 +43,7 @@ namespace ParseFormsApp
             string filePath = Path.Combine(path, fileName);
             File.WriteAllText(filePath, jsonData);
             MessageBox.Show("Successfully saved file to the selected location.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
         }
     }
 }

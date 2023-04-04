@@ -14,7 +14,7 @@ namespace JSONParse
         public string fileName;
         public string extension;
         public bool isXML = false;
-        public bool isJSON = false;
+        public bool isJSONForExcel = false;
         public string templatePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources", "Template.xlsx");
         public Form()
         {
@@ -39,8 +39,17 @@ namespace JSONParse
             label1.Text = Path.GetFileName(fileName);
             if (extension == ".json")
             {
-                textBox1.Text = ParseJSONFile.ParseDevice(fileName);
-                isJSON = true;
+                string jsonString = File.ReadAllText(fileName);
+                if (jsonString.Contains("Ports"))
+                {
+                    textBox1.Text = ParseJSONFile.ParseDevice(fileName);
+                    isJSONForExcel = true;
+                }
+                else if (jsonString.Contains("people"))
+                {
+                    textBox1.Text = ParseJSONFile.ParsePeople(fileName);
+                    isJSONForExcel = false;
+                }
             }
             else if (extension == ".xml")
             {
@@ -63,7 +72,7 @@ namespace JSONParse
             {
                 MessageBox.Show("Invalid file type. Please select a JSON, XML or HTML file.");
             }
-            if (isJSON || isXML)
+            if (isJSONForExcel || isXML)
             {
                 button3.Visible = true;
                 button4.Visible = true;
@@ -104,10 +113,10 @@ namespace JSONParse
                     device = ParseXMLFile.Parse(fileName);
                     isXML= false;
                 }
-                if (isJSON)
+                if (isJSONForExcel)
                 {
                     device = ParseJSONFile.Parse(fileName);
-                    isJSON = false;
+                    isJSONForExcel = false;
                 }
                 deviceSheet.Cells["A2"].Value = device.DeviceName;
                 deviceSheet.Cells["B2"].Value = device.Manufacturer;
