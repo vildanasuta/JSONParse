@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Parsing
@@ -65,6 +66,24 @@ namespace Parsing
                                       $"Gender: {personObject["gender"]}\r\n" +
                                       $"Age: {personObject["age"]}\r\n" +
                                       $"Number: {personObject["number"]}\r\n";
+                parsedPeople += parsedPerson;
+                parsedPeople += "\r\n";
+            }
+            return parsedPeople;
+        }
+        public static string ParsePeopleRegexImpl(string path)
+        {
+            string jsonString = File.ReadAllText(path);
+            string pattern = "\"firstName\":\\s*\"(?<firstName>[^\"]+)\",\\s*\"lastName\":\\s*\"(?<lastName>[^\"]+)\",\\s*\"gender\":\\s*\"(?<gender>[^\"]+)\",\\s*\"age\":\\s*(?<age>[0-9]+),\\s*\"number\":\\s*\"(?<number>[^\"]+)\"";
+            MatchCollection matches = Regex.Matches(jsonString, pattern);
+            string parsedPeople = "";
+            foreach (Match match in matches)
+            {
+                string parsedPerson = $"First name: {match.Groups["firstName"].Value}\r\n" +
+                                      $"Last name: {match.Groups["lastName"].Value}\r\n" +
+                                      $"Gender: {match.Groups["gender"].Value}\r\n" +
+                                      $"Age: {match.Groups["age"].Value}\r\n" +
+                                      $"Number: {match.Groups["number"].Value}\r\n";
                 parsedPeople += parsedPerson;
                 parsedPeople += "\r\n";
             }

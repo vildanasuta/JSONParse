@@ -40,14 +40,14 @@ namespace JSONParse
             if (extension == ".json")
             {
                 string jsonString = File.ReadAllText(fileName);
-                if (jsonString.Contains("Ports"))
+                if (jsonString.Contains("ports"))
                 {
                     textBox1.Text = ParseJSONFile.ParseDevice(fileName);
                     isJSONForExcel = true;
                 }
                 else if (jsonString.Contains("people"))
                 {
-                    textBox1.Text = ParseJSONFile.ParsePeople(fileName);
+                    textBox1.Text = ParseJSONFile.ParsePeopleRegexImpl(fileName);
                     isJSONForExcel = false;
                 }
             }
