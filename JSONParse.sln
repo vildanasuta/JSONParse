@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParseFormsApp", "JSONParse\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parsing", "JSONParseClass\Parsing.csproj", "{52DC80FA-6476-44A4-BF3F-07DE919C2AF7}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ParsingApp", "..\..\ParsingApp.vdproj", "{CDBC6032-1539-4957-A1B4-A862BD0F62E8}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ParsingApp", "ParsingApp.vdproj", "{CDBC6032-1539-4957-A1B4-A862BD0F62E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
